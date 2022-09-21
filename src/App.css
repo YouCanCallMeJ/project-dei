@@ -1,3 +1,36 @@
+.main-bg{
+  height:550px;
+  background-image: url('./main.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(75%)
+}
+.card1{
+  height:200px;
+  background-image: url('./firstimg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(95%)
+}
+.card2{
+  height:200px;
+  background-image: url('./secimg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(95%)
+}
+.card3{
+  height:200px;
+  background-image: url('./thirdimg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(95%)
+}
+
 .App {
   text-align: center;
 }
