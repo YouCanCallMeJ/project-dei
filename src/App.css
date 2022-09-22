@@ -1,3 +1,77 @@
+.main-bg{
+  height:550px;
+  background-image: url('./main.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(75%)
+}
+.card1{
+  height:200px;
+  background-image: url('./firstimg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(95%)
+}
+.card2{
+  height:200px;
+  background-image: url('./secimg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(95%)
+}
+.card3{
+  height:200px;
+  background-image: url('./thirdimg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(95%)
+}
+.quote-main{
+  height:300px;
+  background-size: 100% 100%;
+  background-image: url('../public/quotesimg/quotemain.png');
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+.top__quote{
+  margin:30px 0;
+}
+.img{
+  height:500px;
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+}
+.ig1{
+  background-image: url('../public/quotesimg/img1.jpg');
+}
+.ig2{
+  background-image: url('../public/quotesimg/img2.jpg');
+}
+.ig3{
+  background-image: url('../public/quotesimg/img3.jpg');
+}
+.ig4{
+  background-image: url('../public/quotesimg/img4.jpg');
+}
+.ig5{
+  background-image: url('../public/quotesimg/img5.jpg');
+}
+.ig6{
+  background-image: url('../public/quotesimg/img6.jpg');
+}
+.ranquote{
+  color:rgb(72, 141, 141);
+  background-color: rgb(226, 194, 155);
+  font-size: 32px;
+  line-height: 400px;
+  text-align: center;
+}
 .App {
   text-align: center;
 }
