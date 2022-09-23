@@ -3,7 +3,10 @@ const app = express()
 const mongoose = require('mongoose')
 const QuestionModel = require('./models/Question')
 
+const cors = require('cors')
+
 app.use(express.json());
+app.use(cors());
 
 mongoose.connect("mongodb+srv://qwerta1234:qwerta1234@cluster0.dvd29dc.mongodb.net/awareness_questions?retryWrites=true&w=majority")
 
