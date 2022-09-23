@@ -1,1 +1,7 @@
-/node_modules
+# Node
+node_modules
+*.log
+.nvm
+package-lock.json
+
+.env
