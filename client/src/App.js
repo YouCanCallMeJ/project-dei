@@ -16,7 +16,8 @@ function App() {
     Axios.post("http://localhost:3001/createQuestion", {
         question: question
       }).then((response) => {
-      alert("A question has been created.")
+        alert("A question has been created.");
+        setListOfQuestions([...listOfQuestions, {question: question}]);
     })
   }
 
