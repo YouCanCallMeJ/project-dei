@@ -22,21 +22,30 @@ function Question() {
   }
 
   const createQuestion = () => {
-    Axios.post("http://localhost:3001/createQuestion", {
-      question: question
-    }).then((response) => {
-      alert("A question has been created.");
-      setListOfQuestions([...listOfQuestions, { question: question }]);
-    })
+    if(validate(question)) {
+      Axios.post("http://localhost:3001/createQuestion", {
+        question: question
+      }).then((response) => {
+        alert("A question has been created.");
+        setListOfQuestions([...listOfQuestions, { question: question }]);
+      })
+    } else {
+      alert("The question is required!")
+    }
   }
 
   const updateQuestion = (id) => {
-    Axios.put("http://localhost:3001/updateQuestion", {
-      id: id, newQuestion: newQuestion
-    }).then((response) => {
-      getQuestions();
-      alert("The question has been updated.");
-    });
+    if (validate(question)) {
+      Axios.put("http://localhost:3001/updateQuestion", {
+        id: id, newQuestion: newQuestion
+      }).then((response) => {
+        getQuestions();
+        alert("The question has been updated.");
+        toggleFrom();
+      });
+    } else {
+      alert("The question is required!")
+    }
   }
 
   const deleteQuestion = (id) => {
@@ -46,7 +55,13 @@ function Question() {
     });
   }
 
-  return (
+  const validate = (question) => {
+    if (question === "") {
+      return false;
+    }
+    return true;
+  }
+  
     <div className="Question">
       <div class="Layout">
         <h1>
