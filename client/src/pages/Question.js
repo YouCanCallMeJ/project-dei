@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import "../styles/layout.css";
+import "../styles/list.css";
+import "../styles/addForm.css";
 
 function Question() {
   const [listOfQuestions, setListOfQuestions] = useState([]);
@@ -20,10 +23,10 @@ function Question() {
 
   const createQuestion = () => {
     Axios.post("http://localhost:3001/createQuestion", {
-        question: question
-      }).then((response) => {
-        alert("A question has been created.");
-        setListOfQuestions([...listOfQuestions, {question: question}]);
+      question: question
+    }).then((response) => {
+      alert("A question has been created.");
+      setListOfQuestions([...listOfQuestions, { question: question }]);
     })
   }
 
@@ -35,7 +38,7 @@ function Question() {
       alert("The question has been updated.");
     });
   }
-  
+
   const deleteQuestion = (id) => {
     Axios.delete(`http://localhost:3001/deleteQuestion/${id}`).then((response) => {
       getQuestions();
@@ -45,22 +48,31 @@ function Question() {
 
   return (
     <div className="Question">
-      <div className="questionDisplays">
+      <div class="Layout">
+        <h1>
+          Awareness Questions <span>A simple React Question List App</span>
+        </h1>
         {listOfQuestions.map((question) => {
           return (
-            <div>
-              <h1>Question: {question.question}</h1>
-              <input type="text" placeholder="New Question" onChange={(event) => {setNewQuestion(event.target.value);}}/>
-              <button onClick={() => updateQuestion(question._id)}>Update</button>
-              <button onClick={() => deleteQuestion(question._id)}>Delete</button>
+            <div class="List">
+              <ul>{question.question}</ul>
+              <div class="List-buttons">
+                <button onClick={() => updateQuestion(question._id)}>
+                  <i class="fas fa-pen" />
+                  </button>
+                <button onClick={() => deleteQuestion(question._id)}>
+                  <i class="fas fa-trash" />
+                </button>
+              </div>
             </div>
           )
         })}
-      </div>
 
-      <div>
-        <input type="text" placeholder="Enter a question!" onChange={(event) => {setQuestion(event.target.value);}}/>
-        <button onClick={createQuestion}>Create Question</button>
+        <div class="AddForm">
+          <label>New question</label>
+          <input type="text" placeholder="Enter a new question!" onChange={(event) => { setQuestion(event.target.value); }} />
+          <button onClick={createQuestion}>Create</button>
+        </div>
       </div>
     </div>
   );
