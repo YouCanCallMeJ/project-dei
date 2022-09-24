@@ -3,7 +3,7 @@ import "../styles/modal.css"
 
 const Modal = () => (
   <Popup
-    trigger={<button class="button"> Open Modal </button>}
+  trigger={<button class="button"> Check DEI </button>}
     modal
     nested
   >
@@ -15,13 +15,16 @@ const Modal = () => (
         <div class="header"> Modal Title </div>
         <div class="content">
           {' '}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
-          Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
-          delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
+          Have you ever considered the DEI questions?
           <br />
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
-          commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
-          explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
+          <br />
+          Diversity: The presence of differences within a given setting. In the workplace, that can mean differences in race, ethnicity, gender, gender identity, sexual orientation, age and socioeconomic class.
+          <br />
+          <br />
+          Equity: The act of ensuring that processes and programs are impartial, fair and provide equal possible outcomes for every individual.
+          <br />
+          <br />
+          Inclusion: The practice of ensuring that people feel a sense of belonging in the workplace. This means that every employee feels comfortable and supported by the organization when it comes to being their authentic selves.
         </div>
         <div class="actions">
           <Popup

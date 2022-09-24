@@ -50,7 +50,6 @@ function Post() {
 
   return (
     <div className="Post">
-      <Modal></Modal>
       <div class="Layout">
         <h1>
           Posts <span>Aweseme React Post List App</span>
@@ -76,6 +75,7 @@ function Post() {
         <div class="AddForm">
           <label>New Post</label>
           <input type="text" placeholder="Enter a new post!" onChange={(event) => { setPost(event.target.value); }} />
+          <Modal></Modal>
           <button onClick={createPost}>Create</button>
         </div>
       </div>
