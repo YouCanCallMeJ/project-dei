@@ -25,6 +25,10 @@ function App() {
   const updateQuestion = (id) => {
     Axios.put("http://localhost:3001/updateQuestion", {id: id, newQuestion: newQuestion});
   }
+  
+  const deleteQuestion = (id) => {
+    Axios.delete(`http://localhost:3001/deleteQuestion/${id}`);
+  }
 
   return (
     <div className="App">
@@ -35,6 +39,7 @@ function App() {
               <h1>Question: {question.question}</h1>
               <input type="text" placeholder="New Question" onChange={(event) => {setNewQuestion(event.target.value);}}/>
               <button onClick={() => updateQuestion(question._id)}>Update</button>
+              <button onClick={() => deleteQuestion(question._id)}>Delete</button>
             </div>
           )
         })}

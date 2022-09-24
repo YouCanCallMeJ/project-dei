@@ -44,6 +44,13 @@ app.put("/updateQuestion", async (req, res) => {
   }
 });
 
+app.delete("/deleteQuestion/:id", async (req, res) => {
+  const id = req.params.id;
+  
+  await QuestionModel.findByIdAndRemove(id).exec();
+  res.send("delete")
+});
+
 app.listen(3001, () => {
   console.log("Server is running!");
 });
