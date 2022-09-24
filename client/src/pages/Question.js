@@ -8,6 +8,7 @@ function Question() {
   const [listOfQuestions, setListOfQuestions] = useState([]);
   const [question, setQuestion] = useState("");
   const [newQuestion, setNewQuestion] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     Axios.get("http://localhost:3001/getQuestions").then((response) => {
@@ -62,6 +63,11 @@ function Question() {
     return true;
   }
   
+  const toggleFrom = (id) => {
+    setIsEditing(!isEditing);
+  };
+
+  let result = (
     <div className="Question">
       <div class="Layout">
         <h1>
@@ -70,11 +76,16 @@ function Question() {
         {listOfQuestions.map((question) => {
           return (
             <div class="List">
+              {/* {
+                isEditing ?
+                  <ul><input type="text" value={question.question} /></ul>
+                : <ul>{question.question}</ul>
+              } */}
               <ul>{question.question}</ul>
               <div class="List-buttons">
-                <button onClick={() => updateQuestion(question._id)}>
+                <button onClick={toggleFrom}>
                   <i class="fas fa-pen" />
-                  </button>
+                </button>
                 <button onClick={() => deleteQuestion(question._id)}>
                   <i class="fas fa-trash" />
                 </button>
@@ -82,15 +93,23 @@ function Question() {
             </div>
           )
         })}
-
-        <div class="AddForm">
-          <label>New question</label>
-          <input type="text" placeholder="Enter a new question!" onChange={(event) => { setQuestion(event.target.value); }} />
-          <button onClick={createQuestion}>Create</button>
-        </div>
+        {
+          isEditing ?
+            <div class="AddForm">
+              <label>Edit question</label>
+              <input type="text" placeholder="Enter an updated question!" onChange={(event) => { setQuestion(event.target.value); }} />
+              <button onClick={() => updateQuestion(question._id)}>Update</button>
+            </div>
+            : <div class="AddForm">
+              <label>New question</label>
+              <input type="text" placeholder="Enter a new question!" onChange={(event) => { setQuestion(event.target.value); }} />
+              <button onClick={createQuestion}>Create</button>
+            </div>
+        }
       </div>
     </div>
   );
+  return result;
 }
 
 export default Question;
