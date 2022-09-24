@@ -13,6 +13,12 @@ function App() {
     });
   }, []);
 
+  const getQuestions = () => {
+    Axios.get("http://localhost:3001/getQuestions").then((response) => {
+      setListOfQuestions(response.data);
+    });
+  }
+
   const createQuestion = () => {
     Axios.post("http://localhost:3001/createQuestion", {
         question: question
@@ -23,11 +29,20 @@ function App() {
   }
 
   const updateQuestion = (id) => {
-    Axios.put("http://localhost:3001/updateQuestion", {id: id, newQuestion: newQuestion});
+    Axios.put("http://localhost:3001/updateQuestion", {
+      id: id, newQuestion: newQuestion
+    }).then((response) => {
+      // setListOfQuestions([...listOfQuestions, { question: question }]);
+      getQuestions();
+      alert("The question has been updated.");
+    });
   }
   
   const deleteQuestion = (id) => {
-    Axios.delete(`http://localhost:3001/deleteQuestion/${id}`);
+    Axios.delete(`http://localhost:3001/deleteQuestion/${id}`).then((response) => {
+      getQuestions();
+      alert("A question has been deleted.");
+    });
   }
 
   return (
