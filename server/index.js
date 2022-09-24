@@ -25,7 +25,12 @@ app.get("/getQuestions", (req, res) => {
 app.post("/createQuestion", async (req, res) => {
   const question = req.body;
   const newQuestion = new QuestionModel(question);
-  await newQuestion.save();
+  try {
+    await newQuestion.save();
+    res.send("create");
+  } catch (err) {
+    console.log(err);
+  }
 
   res.json(question)
 });
@@ -47,8 +52,11 @@ app.put("/updateQuestion", async (req, res) => {
 
 app.delete("/deleteQuestion/:id", async (req, res) => {
   const id = req.params.id;
-  
-  await QuestionModel.findByIdAndRemove(id).exec();
+  try {
+    await QuestionModel.findByIdAndRemove(id).exec();
+  } catch (err) {
+    console.log(err);
+  }
   res.send("delete")
 });
 
@@ -65,7 +73,11 @@ app.get("/getPosts", (req, res) => {
 app.post("/createPost", async (req, res) => {
   const question = req.body;
   const newPost = new PostModel(question);
-  await newPost.save();
+  try {
+    await newPost.save();
+  } catch (err) {
+    console.log(err);
+  }
 
   res.json(question)
 });
@@ -87,12 +99,14 @@ app.put("/updatePost", async (req, res) => {
 
 app.delete("/deletePost/:id", async (req, res) => {
   const id = req.params.id;
-
-  await PostModel.findByIdAndRemove(id).exec();
+  try {
+    await PostModel.findByIdAndRemove(id).exec();
+  } catch (err) {
+    console.log(err);
+  }
   res.send("delete")
 });
 
 app.listen(3001, () => {
   console.log("Server is running!");
 });
-
