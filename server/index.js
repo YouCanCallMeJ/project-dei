@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const QuestionModel = require('./models/Question')
+const PostModel = require('./models/Post')
 
 const cors = require('cors')
 
@@ -48,6 +49,46 @@ app.delete("/deleteQuestion/:id", async (req, res) => {
   const id = req.params.id;
   
   await QuestionModel.findByIdAndRemove(id).exec();
+  res.send("delete")
+});
+
+app.get("/getPosts", (req, res) => {
+  PostModel.find({}, (err, result) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+app.post("/createPost", async (req, res) => {
+  const question = req.body;
+  const newPost = new PostModel(question);
+  await newPost.save();
+
+  res.json(question)
+});
+
+app.put("/updatePost", async (req, res) => {
+  const newPost = req.body.newPost;
+  const id = req.body.id;
+
+  try {
+    await PostModel.findById(id, (err, updatedPost) => {
+      updatedPost.question = newPost;
+      updatedPost.save();
+      res.send("update");
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.delete("/deletePost/:id", async (req, res) => {
+  const id = req.params.id;
+
+  await PostModel.findByIdAndRemove(id).exec();
   res.send("delete")
 });
 
