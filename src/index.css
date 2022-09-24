@@ -105,6 +105,22 @@ Nav
   top: 87px;
 }
 
+/*
+Calender
+*/
+.calCss {
+  width: 600px;
+  margin-left: 150px;
+  border-color: white;
+}
+
+.calCss button {
+  width: 20%;
+  background-color: #8ab48a;
+  font-size: 70%;
+  border: 2px solid white;
+}
+
 .linkColor {
  color: purple;
 }
