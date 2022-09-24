@@ -3,6 +3,8 @@ import Axios from "axios";
 import "../styles/layout.css";
 import "../styles/list.css";
 import "../styles/addForm.css";
+import Modal from '../components/Modal';
+
 
 function Post() {
   const [listOfPosts, setListOfPosts] = useState([]);
@@ -48,6 +50,7 @@ function Post() {
 
   return (
     <div className="Post">
+      <Modal></Modal>
       <div class="Layout">
         <h1>
           Posts <span>Aweseme React Post List App</span>
