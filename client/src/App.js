@@ -5,6 +5,7 @@ import Axios from "axios";
 function App() {
   const [listOfQuestions, setListOfQuestions] = useState([]);
   const [question, setQuestion] = useState("");
+  const [newQuestion, setNewQuestion] = useState("");
 
   useEffect(() => {
     Axios.get("http://localhost:3001/getQuestions").then((response) => {
@@ -21,6 +22,10 @@ function App() {
     })
   }
 
+  const updateQuestion = (id) => {
+    Axios.put("http://localhost:3001/updateQuestion", {id: id, newQuestion: newQuestion});
+  }
+
   return (
     <div className="App">
       <div className="questionDisplays">
@@ -28,6 +33,8 @@ function App() {
           return (
             <div>
               <h1>Question: {question.question}</h1>
+              <input type="text" placeholder="New Question" onChange={(event) => {setNewQuestion(event.target.value);}}/>
+              <button onClick={() => updateQuestion(question._id)}>Update</button>
             </div>
           )
         })}

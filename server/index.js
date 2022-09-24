@@ -29,6 +29,21 @@ app.post("/createQuestion", async (req, res) => {
   res.json(question)
 });
 
+app.put("/updateQuestion", async (req, res) => {
+  const newQuestion = req.body.newQuestion;
+  const id = req.body.id;
+  
+  try {
+    await QuestionModel.findById(id, (err, updatedQuestion) => {
+      updatedQuestion.question = newQuestion;
+      updatedQuestion.save();
+      res.send("update");
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 app.listen(3001, () => {
   console.log("Server is running!");
 });
