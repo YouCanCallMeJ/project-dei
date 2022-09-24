@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import Axios from "axios";
+import "../styles/layout.css";
+import "../styles/list.css";
+import "../styles/addForm.css";
 
 function Post() {
   const [listOfPosts, setListOfPosts] = useState([]);
@@ -45,22 +48,33 @@ function Post() {
 
   return (
     <div className="Post">
-      <div className="postDisplays">
-        {listOfPosts.map((post) => {
-          return (
-            <div>
-              <h1>Post: {post.post}</h1>
-              <input type="text" placeholder="New Post" onChange={(event) => {setNewPost(event.target.value);}}/>
-              <button onClick={() => updatePost(post._id)}>Update</button>
-              <button onClick={() => deletePost(post._id)}>Delete</button>
-            </div>
-          )
-        })}
-      </div>
+      <div class="Layout">
+        <h1>
+          Posts <span>Aweseme React Post List App</span>
+        </h1>
+        <div className="postDisplays">
+          {listOfPosts.map((post) => {
+            return (
+              <div class="List">
+                <ul>{post.post}</ul>
+                <div class="List-buttons">
+                  <button onClick={() => updatePost(post._id)}>
+                    <i class="fas fa-pen" />
+                  </button>
+                  <button onClick={() => deletePost(post._id)}>
+                    <i class="fas fa-trash" />
+                  </button>
+                </div>
+              </div>
+            )
+          })}
+        </div>
 
-      <div>
-        <input type="text" placeholder="Enter a post!" onChange={(event) => {setPost(event.target.value);}}/>
-        <button onClick={createPost}>Create Post</button>
+        <div class="AddForm">
+          <label>New Post</label>
+          <input type="text" placeholder="Enter a new post!" onChange={(event) => { setPost(event.target.value); }} />
+          <button onClick={createPost}>Create</button>
+        </div>
       </div>
     </div>
   );
