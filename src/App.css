@@ -42,7 +42,7 @@
 }
 .img{
   height:500px;
-  background-size: 70% 100%;
+  background-size: 80% 100%;
   background-repeat: no-repeat;
   background-position: center;
   object-fit: cover;
@@ -71,6 +71,25 @@
   font-size: 32px;
   line-height: 400px;
   text-align: center;
+}
+.likes{
+  font-size: 32px;
+  background-color: #eee;
+}
+.copyBtn{
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size:20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+  background-color: aliceblue;
+  color: #1e6b7b;
+
 }
 .App {
   text-align: center;
