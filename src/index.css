@@ -53,6 +53,13 @@ h1 {
   margin-bottom: 20px;
 }
 
+h2 {
+  text-align: center;
+  color: antiquewhite;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 input {
   border: 1px solid #818588;
   border-radius: 8px;
