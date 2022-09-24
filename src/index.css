@@ -86,7 +86,7 @@ form
 {
     display: block;
     text-align: center;
-    background-color:white;;
+    background-color:white;
     width: 600px;
     margin-left: 150px;
     border-radius: 10px;
@@ -97,11 +97,16 @@ form
 Nav
 */
 .flex-column {
+  background-color:white;
   position:absolute;
   border: 1px solid #818588;
   border-radius: 8px;
   color: #202124;
-  top: 150px;
+  top: 87px;
+}
+
+.linkColor {
+ color: purple;
 }
 
 /* .aline {
