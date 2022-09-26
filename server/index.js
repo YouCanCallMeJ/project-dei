@@ -27,12 +27,10 @@ app.post("/createQuestion", async (req, res) => {
   const newQuestion = new QuestionModel(question);
   try {
     await newQuestion.save();
-    res.send("create");
+    res.json(question);
   } catch (err) {
     console.log(err);
   }
-
-  res.json(question)
 });
 
 app.put("/updateQuestion", async (req, res) => {
@@ -43,7 +41,7 @@ app.put("/updateQuestion", async (req, res) => {
     await QuestionModel.findById(id, (err, updatedQuestion) => {
       updatedQuestion.question = newQuestion;
       updatedQuestion.save();
-      res.send("update");
+      res.json(updatedQuestion);
     });
   } catch (err) {
     console.log(err);
